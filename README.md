@@ -46,8 +46,7 @@ A professional, fully-functional e-commerce website built with Node.js, Express,
 - **MySQL** (v5.7 or higher)
 - **npm** (comes with Node.js)
 
-## 📦 Installation
-
-### Step 1: Clone or Extract Project Files
-
-Extract all project files to a directory:
+## This project was developed for Data Structure and Algoritm(DSA)course under supervision of Lab Engineer 'Obaidullah Miakhail'
+Check it out here:
+ • User Interface: http://localhost:5000
+ • Admin Dashboard:  http://localhost:5000/admin-dashboard
