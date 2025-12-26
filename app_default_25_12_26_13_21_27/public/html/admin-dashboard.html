@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard - Daily Mart</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <i class="fas fa-shopping-bag"></i>
+                <span>Daily Mart Admin</span>
+            </div>
+            <div class="nav-actions" id="navActions">
+                <button class="btn-secondary" onclick="logoutAdmin()">Logout</button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Admin Dashboard -->
+    <div class="container">
+        <div class="admin-dashboard">
+            <!-- Sidebar -->
+            <aside class="admin-sidebar">
+                <nav class="admin-menu">
+                    <button class="menu-item active" onclick="switchAdminTab('dashboard')">
+                        <i class="fas fa-chart-line"></i> Dashboard
+                    </button>
+                    <button class="menu-item" onclick="switchAdminTab('products')">
+                        <i class="fas fa-box"></i> Products
+                    </button>
+                    <button class="menu-item" onclick="switchAdminTab('orders')">
+                        <i class="fas fa-shopping-bag"></i> Orders
+                    </button>
+                    <button class="menu-item" onclick="switchAdminTab('users')">
+                        <i class="fas fa-users"></i> Users
+                    </button>
+                </nav>
+            </aside>
+
+            <!-- Main Content -->
+            <main class="admin-content">
+                <!-- Dashboard Tab -->
+                <div id="dashboardTab" class="tab-content active">
+                    <h2>Dashboard</h2>
+                    <div class="dashboard-stats">
+                        <div class="stat-card">
+                            <i class="fas fa-users"></i>
+                            <div>
+                                <p>Total Users</p>
+                                <h3 id="statUsers">0</h3>
+                            </div>
+                        </div>
+                        <div class="stat-card">
+                            <i class="fas fa-box"></i>
+                            <div>
+                                <p>Total Products</p>
+                                <h3 id="statProducts">0</h3>
+                            </div>
+                        </div>
+                        <div class="stat-card">
+                            <i class="fas fa-shopping-bag"></i>
+                            <div>
+                                <p>Total Orders</p>
+                                <h3 id="statOrders">0</h3>
+                            </div>
+                        </div>
+                        <div class="stat-card">
+                            <i class="fas fa-dollar-sign"></i>
+                            <div>
+                                <p>Total Revenue</p>
+                                <h3 id="statRevenue">$0.00</h3>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Products Tab -->
+                <div id="productsTab" class="tab-content">
+                    <h2>Manage Products</h2>
+                    <button class="btn-primary" onclick="openAddProductForm()">Add New Product</button>
+
+                    <div id="addProductForm" class="modal" style="display:none;">
+                        <div class="modal-content">
+                            <span class="close" onclick="closeAddProductForm()">&times;</span>
+                            <h2>Add Product</h2>
+                            <form onsubmit="submitAddProduct(event)">
+                                <div class="form-group">
+                                    <label>Product Name</label>
+                                    <input type="text" id="newProductName" required>
+                                </div>
+                                <div class="form-group">
+                                    <label>Description</label>
+                                    <textarea id="newProductDesc" required></textarea>
+                                </div>
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label>Price</label>
+                                        <input type="number" id="newProductPrice" step="0.01" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Stock</label>
+                                        <input type="number" id="newProductStock" required>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label>Category</label>
+                                    <select id="newProductCategory" required></select>
+                                </div>
+                                <div class="form-group">
+                                    <label>Image URL</label>
+                                    <input type="url" id="newProductImage">
+                                </div>
+                                <button type="submit" class="btn-primary">Add Product</button>
+                            </form>
+                        </div>
+                    </div>
+
+                    <table class="admin-table">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Name</th>
+                                <th>Price</th>
+                                <th>Stock</th>
+                                <th>Category</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="productsTable"></tbody>
+                    </table>
+                </div>
+
+                <!-- Orders Tab -->
+                <div id="ordersTab" class="tab-content">
+                    <h2>Manage Orders</h2>
+                    <table class="admin-table">
+                        <thead>
+                            <tr>
+                                <th>Order ID</th>
+                                <th>Customer</th>
+                                <th>Amount</th>
+                                <th>Status</th>
+                                <th>Date</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="ordersTable"></tbody>
+                    </table>
+                </div>
+
+                <!-- Users Tab -->
+                <div id="usersTab" class="tab-content">
+                    <h2>Manage Users</h2>
+                    <table class="admin-table">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Name</th>
+                                <th>Email</th>
+                                <th>Phone</th>
+                                <th>Role</th>
+                                <th>Joined</th>
+                            </tr>
+                        </thead>
+                        <tbody id="usersTable"></tbody>
+                    </table>
+                </div>
+            </main>
+        </div>
+    </div>
+
+    <script src="../js/common.js"></script>
+    <script src="../js/admin-dashboard.js"></script>
+</body>
+</html>

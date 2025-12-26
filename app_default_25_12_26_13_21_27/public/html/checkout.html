@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout - Daily Mart</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <i class="fas fa-shopping-bag"></i>
+                <span>Daily Mart</span>
+            </div>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="/">Home</a></li>
+                <li><a href="/products">Products</a></li>
+                <li><a href="/cart" class="nav-link">Cart <span class="cart-count">0</span></a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Page Title -->
+    <div class="page-title">
+        <h1>Checkout</h1>
+    </div>
+
+    <!-- Checkout Content -->
+    <div class="container">
+        <div class="checkout-content">
+            <!-- Checkout Form -->
+            <div class="checkout-form">
+                <h2>Shipping Information</h2>
+                <form onsubmit="submitOrder(event)">
+                    <div class="form-group">
+                        <label>Address</label>
+                        <input type="text" id="shippingAddress" placeholder="Enter your address" required>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>City</label>
+                            <input type="text" id="shippingCity" placeholder="Enter your city" required>
+                        </div>
+                        <div class="form-group">
+                            <label>ZIP Code</label>
+                            <input type="text" id="shippingZip" placeholder="Enter ZIP code" required>
+                        </div>
+                    </div>
+
+                    <h2>Payment Method</h2>
+                    <div class="form-group">
+                        <label>Select Payment Method</label>
+                        <select id="paymentMethod" required>
+                            <option value="">Choose a method</option>
+                            <option value="credit_card">Credit Card</option>
+                            <option value="debit_card">Debit Card</option>
+                            <option value="paypal">PayPal</option>
+                            <option value="bank_transfer">Bank Transfer</option>
+                        </select>
+                    </div>
+
+                    <button type="submit" class="btn-primary btn-block">Place Order</button>
+                </form>
+            </div>
+
+            <!-- Order Summary -->
+            <aside class="order-summary">
+                <h2>Order Summary</h2>
+                <div id="orderItems"></div>
+                <div class="summary-item">
+                    <span>Subtotal:</span>
+                    <span id="summarySubtotal">$0.00</span>
+                </div>
+                <div class="summary-item">
+                    <span>Shipping:</span>
+                    <span id="summaryShipping">$0.00</span>
+                </div>
+                <div class="summary-item">
+                    <span>Tax:</span>
+                    <span id="summaryTax">$0.00</span>
+                </div>
+                <div class="summary-item total">
+                    <span>Total:</span>
+                    <span id="summaryTotal">$0.00</span>
+                </div>
+            </aside>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>About Us</h3>
+                    <p>Daily Mart is your trusted online marketplace for quality products at great prices.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../js/common.js"></script>
+    <script src="../js/checkout.js"></script>
+</body>
+</html>
