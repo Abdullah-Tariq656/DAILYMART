@@ -1,3 +1,10 @@
+Group Members:
+M.Abdullah Tariq(CS-097)
+M.Haris Khan(CS-088)
+Ammar Riasat(CS-105)
+
+
+
 # Daily Mart - E-Commerce Platform
 
 A professional, fully-functional e-commerce website built with Node.js, Express, MySQL, and vanilla JavaScript.
