@@ -1,9 +1,6 @@
 Group Members:
-
 M.Abdullah Tariq(CS-097)
-
 M.Haris Khan(CS-088)
-
 Ammar Riasat(CS-105)
 
 
